@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+      charset="UTF-8"
+    />
+    <title>Add class</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+
+    <script>
+      function validateForm() {
+        alert("Add success!");
+      }
+    </script>
+  </head>
+
+  <body style="margin-left: 20%; margin-right: 20%; margin-top: 3%;">
+    <h3 style="text-align: center;">Add Class</h3>
+
+    <form action="/addClass" method="POST" onsubmit="validateForm()">
+      <div class="row">
+        <div class="col">
+          <label for="jugyoName">jugyoName</label>
+          <input
+            name="jugyoName"
+            type="text"
+            class="form-control"
+            placeholder="Enter jugyoName"
+            required
+          />
+        </div>
+        <div class="col">
+          <label for="kaikoYobi">kaikoYobi</label>
+          <input
+            name="kaikoYobi"
+            type="number"
+            class="form-control"
+            placeholder="Enter kaikoYobi"
+            required
+          />
+        </div>
+      </div>
+      <br />
+      <div class="row">
+        <div class="col">
+          <label for="kyostName">kyostName</label>
+          <select name="kyostName" class="form-control">
+            <option value="B101教室">B101教室</option>
+            <option value="B102教室" selected>B102教室</option>
+            <option value="B103教室">B103教室</option>
+            <option value="B104教室">B104教室</option>
+            <option value="B105教室">B105教室</option>
+            <option value="B106教室">B106教室</option>
+          </select>
+        </div>
+        <div class="col">
+          <label for="kyoinName">kyoinName</label>
+          <input
+            name="kyoinName"
+            type="text"
+            class="form-control"
+            required
+            placeholder="Enter kyoinName"
+          />
+        </div>
+      </div>
+
+      <br />
+      <div class="row">
+        <div class="col">
+          <label for="jigenNo">jigenNo</label>
+          <input
+            name="jigenNo"
+            type="number"
+            class="form-control"
+            required
+            placeholder="Enter jigenNo"
+          />
+        </div>
+      </div>
+      <br />
+
+      <div class="row">
+        <div class="col">
+          <label for="jugyoStartTime">jugyoStartTime</label>
+          <input
+            name="jugyoStartTime"
+            type="time"
+            required
+            class="form-control"
+            placeholder="Enter jugyoStartTime"
+          />
+        </div>
+        <div class="col">
+          <label for="jugyoEndTime">jugyoEndTime</label>
+          <input
+            name="jugyoEndTime"
+            type="time"
+            class="form-control"
+            required
+            placeholder="Enter jugyoEndTime"
+          />
+        </div>
+      </div>
+      <br />
+      <div class="row">
+        <div class="col">
+          <label for="attendanceStartTime">Attendance start time</label>
+          <input
+            name="attendanceStartTime"
+            type="time"
+            required
+            class="form-control"
+            placeholder="Enter attendance start time"
+          />
+        </div>
+        <div class="col">
+          <label for="attendanceEndTime">Attendance end time</label>
+          <input
+            name="attendanceEndTime"
+            type="time"
+            class="form-control"
+            required
+            placeholder="Enter attendance end time"
+          />
+        </div>
+      </div>
+      <br />
+      <div class="row">
+        <div class="col">
+          <label for="AttendanceCode">Attendance Code</label>
+          <input
+            name="AttendanceCode"
+            type="number"
+            required
+            class="form-control"
+            maxlength="4"
+            placeholder="Enter attendance code"
+            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+          />
+        </div>
+      </div>
+
+      <br />
+      <div style="text-align: center;">
+        <input type="submit" value="Submit" class="btn btn-primary" />
+      </div>
+    </form>
+    <br />
+    <div class="col-sm-12">
+      <table class="table table-striped sortable">
+        <thead>
+          <tr>
+            <th>Class name</th>
+            <th>kyostName</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if(lesson.length != 0){ %> <% lesson.forEach(function(i){ %>
+          <tr>
+            <td><%= i.jugyoName %></td>
+            <td><%= i.kyostName %></td>
+            <td>
+              <a
+                href="/removeClass/?jugyoCd=<%= i.jugyoCd %>"
+                onclick="return confirm('Are you sure???')  "
+                class="btn btn-danger"
+                >Delete</a
+              >
+            </td>
+          </tr>
+          <% }) %> <% } else { %>
+          <tr>
+            <td>No data</td>
+          </tr>
+          <% } %>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

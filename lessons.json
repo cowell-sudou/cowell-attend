@@ -1,0 +1,24 @@
+{
+  "jgkmInfo": [
+    {
+      "jugyoName": "文学",
+      "kaikoYobi": 2,
+      "kyostName": "B101教室",
+      "jugyoCd": "15347",
+      "gakkiNo": 1,
+      "kyoinName": "北山　守",
+      "jigenNo": 2,
+      "jugyoKbn": "1",
+      "kaikoNendo": 2016,
+      "jugyoEndTime": "12:10",
+      "jugyoStartTime": "10:40",
+      "follow_up_test": 1,
+      "attendanceStartTime": "10:40",
+      "attendanceEndTime": "10:50",
+      "keijiInfo": {
+        "midokCnt": 0
+      },
+      "nendo": 2016
+    }
+  ]
+}
